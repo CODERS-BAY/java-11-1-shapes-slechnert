@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.codersbay.gerhofer.DummyClassTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-15T11:09:09" hostname="DESKTOP-F3TA0OR" time="0.039">
-  <properties/>
-  <testcase name="testDoNotCallThrowsException()" classname="com.codersbay.gerhofer.DummyClassTest" time="0.031"/>
-  <testcase name="testGetAge()" classname="com.codersbay.gerhofer.DummyClassTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
