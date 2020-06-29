@@ -1,20 +1,16 @@
 package com.codersbay.gerhofer;
 
-public class Square extends Shape {
-    public double sideLength;
+public class Square extends Rectangle {
+    public double length;
+    public double width;
 
-    public Square(double sideLength) {
-        if (sideLength <= 0) {
+    public Square(double length, double width) {
+        super(length, width);
+        if (length <= 0 || width <= 0) {
             throw new IllegalArgumentException("Side length can't be zero or negative");
         }
-        this.sideLength = sideLength;
+        this.length = length;
+        this.width = length;
     }
 
-    public double getArea() {
-        return sideLength * sideLength;
-    }
-
-    public double getPerimeter() {
-        return sideLength * 4;
-    }
 }
