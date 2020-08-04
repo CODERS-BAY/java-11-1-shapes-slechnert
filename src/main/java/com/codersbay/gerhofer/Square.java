@@ -6,7 +6,7 @@ public class Square extends Rectangle {
 
     public Square(double length) {
         super(length, length);
-        if (length <= 0 || width <= 0) {
+        if (length <= 0) {
             throw new IllegalArgumentException("Side length can't be zero or negative");
         }
         this.length = length;

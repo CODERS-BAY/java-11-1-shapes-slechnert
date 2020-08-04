@@ -2,30 +2,36 @@ package com.codersbay.gerhofer;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SquareTest {
-    @Test
+    @ParameterizedTest
     @DisplayName("When we create a shape with negative side length we expect to throw an IllegalArgumentException")
-    public void testInvalidSideLengthException() {
+    @ValueSource(doubles = {-2d, 0d})
+    public void testInvalidSideLengthException(double num) {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Square(-2d);
+            new Square(num);
         });
     }
 
-    @Test
-    @DisplayName("When we test getArea() with side length 2, expecting it to return 4")
-    public void testGetArea() {
-        Square testSquare = new Square(2d);
-        assertEquals(4, testSquare.getArea());
+    @ParameterizedTest
+    @DisplayName("When we test getArea(), we expect the sidelength to be  squared")
+    @CsvSource({"2,4", "4,16", "5000,25000000"})
+    public void testGetArea(double num, double res) {
+        Square testSquare = new Square(num);
+        assertEquals(res, testSquare.getArea());
     }
 
-    @Test
-    @DisplayName("When we test getPerimeter() with side length 2, expeting it to return 8")
-    public void testGetPerimeter() {
-        Square testSquare = new Square(2d);
-        assertEquals(8, testSquare.getPerimeter());
+    @ParameterizedTest
+    @DisplayName("When we test getPerimeter(), we expect it to multiply by 4")
+    @CsvSource({"2,8", "4,16", "5000,20000"})
+    public void testGetPerimeter(double num, double res) {
+        Square testSquare = new Square(num);
+        assertEquals(res, testSquare.getPerimeter());
     }
 }
